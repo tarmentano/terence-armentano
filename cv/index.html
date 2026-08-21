@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Terence Armentano — Academic Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+
+/* ── TOKENS ── */
+:root {
+  --warm-white:  #FAFAF8;
+  --paper:       #F4F2EE;
+  --ink:         #1C1C1E;
+  --deep:        #2C2C2E;
+  --mid:         #6B7280;
+  --subtle:      #E8E5E0;
+  --subtle-2:    #D4D0C8;
+  --accent:      #8B7355;
+  --accent-lt:   #C4A882;
+  --accent-pale: #F5EFE6;
+  --sidebar-w:   280px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Source Serif 4', serif;
+  background: var(--warm-white);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--warm-white);
+  border-right: 1px solid var(--subtle);
+  display: flex;
+  flex-direction: column;
+  padding: 48px 32px 40px;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.sidebar-name {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.sidebar-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--mid);
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  margin-bottom: 32px;
+}
+
+.sidebar-divider {
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  margin-bottom: 28px;
+  flex-shrink: 0;
+}
+
+/* Nav */
+.nav-section {
+  margin-bottom: 28px;
+}
+
+.nav-section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 8px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.15s;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--subtle-2);
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--ink);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  background: var(--accent);
+  transform: scale(1.5);
+}
+
+/* Sidebar bottom */
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 28px;
+  border-top: 1px solid var(--subtle);
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-ext-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--mid);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+
+.sidebar-ext-link:hover { color: var(--accent); }
+
+.sidebar-ext-link svg {
+  width: 12px; height: 12px;
+  opacity: 0.6;
+}
+
+/* ── Back to landing page ── */
+.sidebar-home {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: var(--mid);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 18px;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.sidebar-home:hover { color: var(--accent); transform: translateX(-2px); }
+
+/* Shown only when the sidebar is hidden, so there is always a way back */
+.mobile-home {
+  display: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 28px;
+}
+
+/* ── MAIN CONTENT ── */
+.main {
+  margin-left: var(--sidebar-w);
+  max-width: 820px;
+  padding: 64px 72px 120px;
+}
+
+/* ── PROFILE HEADER ── */
+.profile-header {
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--subtle);
+  margin-bottom: 72px;
+}
+
+/* Portrait + name lockup. These were inline styles until they needed to
+   respond at mobile widths — keep them here so media queries can reach them. */
+.profile-id {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.profile-photo {
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--subtle);
+}
+
+/* Matches the .name / .cred lockup on the landing page so the two
+   pages read as one site. Keep these in sync if either changes. */
+.profile-suffix {
+  font-family: 'Lora', serif;
+  font-size: 0.92em;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.profile-name {
+  font-family: 'Lora', serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--ink);
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.profile-name em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--mid);
+}
+
+.profile-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--mid);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.profile-statement {
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--deep);
+  line-height: 1.85;
+  max-width: 560px;
+  margin-bottom: 40px;
+  border-left: 3px solid var(--accent);
+  padding-left: 22px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+.profile-statement strong {
+  font-weight: 600;
+  font-style: normal;
+  color: var(--ink);
+}
+
+/* Vitals row */
+.vitals {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--subtle);
+  border-radius: 6px;
+  overflow: hidden;
+  width: fit-content;
+  background: var(--warm-white);
+}
+
+.vital {
+  padding: 14px 28px;
+  border-right: 1px solid var(--subtle);
+  text-align: center;
+}
+
+.vital:last-child { border-right: none; }
+
+.vital-n {
+  font-family: 'Lora', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.vital-l {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-top: 4px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  margin-bottom: 80px;
+  scroll-margin-top: 40px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.section-label {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--subtle);
+}
+
+/* ── EDUCATION ── */
+.edu-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 24px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--subtle);
+}
+
+.edu-item:last-child { border-bottom: none; }
+
+.edu-degree {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.edu-school {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+}
+
+.edu-gpa {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ── EXPERIENCE ── */
+.job {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--subtle);
+}
+
+.job:last-child { border-bottom: none; }
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.job-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.job-dates {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--mid);
+  white-space: nowrap;
+}
+
+.job-org {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--subtle);
+}
+
+.job-bullets {
+  list-style: none;
+  padding: 0;
+}
+
+.job-bullets li {
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #3D3D3F;
+  line-height: 1.7;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 9px;
+}
+
+.job-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-lt);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-pale);
+  border: 1px solid rgba(139,115,85,0.2);
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-left: 6px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* Inline quote */
+.inline-quote {
+  border-left: 2px solid var(--accent-lt);
+  padding: 12px 18px;
+  margin-top: 14px;
+  background: var(--accent-pale);
+  border-radius: 0 4px 4px 0;
+}
+
+.inline-quote p {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--deep);
+  line-height: 1.65;
+  margin-bottom: 5px;
+}
+
+.inline-quote cite {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--mid);
+  font-style: normal;
+}
+
+/* ── ACCOMPLISHMENTS GRID ── */
+.acc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.acc-card {
+  background: var(--warm-white);
+  border: 1px solid var(--subtle);
+  border-top: 2px solid var(--accent);
+  border-radius: 0 0 4px 4px;
+  padding: 18px 20px;
+  transition: border-top-color 0.2s, box-shadow 0.2s;
+}
+
+.acc-card:hover {
+  border-top-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.acc-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+.acc-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+.acc-body {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* ── PUBLICATIONS ── */
+.pub-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--subtle);
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #3D3D3F;
+  line-height: 1.65;
+}
+
+.pub-item:last-child { border-bottom: none; }
+
+.pub-item strong {
+  font-weight: 400;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+/* Scholarship section styles */
+.scholarship-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 28px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.scholarship-sub::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--subtle);
+}
+.scholarship-sub:first-child { margin-top: 0; }
+
+.sch-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--subtle);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 20px;
+  align-items: start;
+}
+.sch-item:last-child { border-bottom: none; }
+
+.sch-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.sch-detail {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+.sch-detail em { font-style: italic; }
+
+.sch-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid rgba(139,115,85,0.25);
+  border-radius: 3px;
+  padding: 4px 10px;
+  transition: background 0.15s, color 0.15s;
+  display: inline-block;
+  margin-top: 2px;
+}
+.sch-link:hover { background: var(--accent-pale); }
+.sch-link + .sch-link { margin-left: 6px; }
+
+/* Press cards */
+.press-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.press-card {
+  background: var(--paper);
+  border: 1px solid var(--subtle);
+  border-radius: 6px;
+  padding: 20px 22px;
+  transition: box-shadow 0.2s;
+}
+.press-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+.press-outlet {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.press-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--mid);
+  margin-bottom: 8px;
+}
+
+.press-headline {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.press-desc {
+  font-family: 'Source Serif 4', serif;
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.press-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.testimonial {
+  background: var(--paper);
+  border-radius: 6px;
+  padding: 28px 32px;
+  border: 1px solid var(--subtle);
+  position: relative;
+}
+
+.testimonial::before {
+  content: '\201C';
+  position: absolute;
+  top: 12px; left: 24px;
+  font-family: 'Lora', serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.18;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--deep);
+  line-height: 1.75;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.testimonial-rule {
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+  margin-bottom: 10px;
+}
+
+.testimonial-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.testimonial-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--mid);
+  margin-top: 2px;
+}
+
+/* ── RECOGNITION STRIP ── */
+.recognition-strip {
+  background: var(--paper);
+  border: 1px solid var(--subtle);
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin-bottom: 80px;
+}
+
+.rec-strip-inner {
+  display: flex;
+  gap: 0;
+}
+
+.rec-strip-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 24px;
+  border-right: 1px solid var(--subtle);
+}
+
+.rec-strip-item:last-child { border-right: none; }
+
+.rec-num {
+  font-family: 'Lora', serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.rec-lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.rec-body {
+  font-family: 'Source Serif 4', serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* ── CONNECT ── */
+.connect-block {
+  background: var(--ink);
+  border-radius: 8px;
+  padding: 48px 52px;
+  text-align: center;
+}
+
+.connect-block h2 {
+  font-family: 'Lora', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.connect-block h2 em {
+  font-style: italic;
+  color: var(--accent-lt);
+}
+
+.connect-block p {
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 460px;
+  margin: 0 auto 32px;
+}
+
+.connect-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-accent {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.btn-accent:hover { background: var(--accent-lt); transform: translateY(-1px); }
+
+.btn-ghost-white {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.75);
+  padding: 12px 28px;
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-ghost-white:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+/* ── FOOTER ── */
+.page-footer {
+  margin-left: var(--sidebar-w);
+  padding: 28px 72px;
+  border-top: 1px solid var(--subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--mid);
+}
+
+.page-footer a {
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.page-footer a:hover { color: var(--accent); }
+
+/* ── MOBILE NAV ──
+   Hidden entirely on desktop; switched on inside the 900px query below.
+   The link list is cloned from the sidebar <nav> at load, so section links
+   only ever need to be maintained in one place (the sidebar markup). */
+.mobile-nav { display: none; }
+
+.mobile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 52px;
+  padding: 0 20px;
+  background: rgba(250, 250, 248, 0.94);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--subtle);
+}
+
+.mobile-bar-home {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: var(--mid);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.mobile-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: var(--accent);
+  background: var(--accent-pale);
+  border: 1px solid var(--subtle-2);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-toggle svg {
+  width: 9px; height: 9px;
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav.open .mobile-toggle svg { transform: rotate(180deg); }
+
+.mobile-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--warm-white);
+  transition: max-height 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.mobile-nav.open .mobile-panel {
+  max-height: calc(100vh - 52px);
+  overflow-y: auto;
+  border-bottom: 1px solid var(--subtle);
+  box-shadow: 0 12px 24px -18px rgba(28, 28, 30, 0.35);
+}
+
+.mobile-panel .nav-section { margin: 0; padding: 18px 20px 6px; }
+.mobile-panel .nav-section + .nav-section { border-top: 1px solid var(--subtle); }
+.mobile-panel .nav-section:last-child { padding-bottom: 18px; }
+.mobile-panel .nav-link { padding: 10px 0; font-size: 14px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+  }
+  /* Top padding clears the fixed bar; scroll-margin keeps anchor jumps
+     from landing underneath it */
+  .main { margin-left: 0; padding: 92px 28px 80px; }
+  .section, .recognition-strip { scroll-margin-top: 68px; }
+  .mobile-home { display: none; }
+  .page-footer { margin-left: 0; padding: 24px 28px; }
+  .acc-grid { grid-template-columns: 1fr; }
+  .rec-strip-inner { flex-direction: column; gap: 24px; }
+  .rec-strip-item { border-right: none; border-bottom: 1px solid var(--subtle); padding: 0 0 24px; }
+  .rec-strip-item:last-child { border-bottom: none; }
+  .profile-name { font-size: 36px; }
+  .profile-id { gap: 24px; }
+  /* Grid, not flex — cells shrink to fit instead of wrapping into an orphan row */
+  .vitals {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+  .vital { padding: 14px 8px; }
+  .vital-l { font-size: 9px; letter-spacing: 0.5px; }
+  .connect-block { padding: 36px 28px; }
+}
+
+/* Same treatment as the landing page masthead, at the same breakpoint:
+   the portrait stacks above the name so the full line has room and
+   Ph.D. can stay inline rather than clipping. */
+@media (max-width: 640px) {
+  .profile-id {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .profile-name { font-size: 34px; }
+}
+
+/* Phones: four across gets too cramped, so drop to a clean 2x2 */
+@media (max-width: 560px) {
+  .vitals { grid-template-columns: 1fr 1fr; }
+  .vital {
+    padding: 16px 10px;
+    border-right: 1px solid var(--subtle);
+    border-bottom: 1px solid var(--subtle);
+  }
+  .vital:nth-child(2n)  { border-right: none; }
+  .vital:nth-child(n+3) { border-bottom: none; }
+  .vital-n { font-size: 24px; }
+}
+
+/* ── Page-load intro (header only) ── */
+@keyframes introRise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.profile-header > * {
+  animation: introRise 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.profile-header > *:nth-child(1) { animation-delay:  60ms; }
+.profile-header > *:nth-child(2) { animation-delay: 150ms; }
+.profile-header > *:nth-child(3) { animation-delay: 240ms; }
+
+/* vitals stagger individually rather than as one block */
+.profile-header > .vitals { animation: none; }
+.vitals .vital {
+  animation: introRise 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.vitals .vital:nth-child(1) { animation-delay: 330ms; }
+.vitals .vital:nth-child(2) { animation-delay: 390ms; }
+.vitals .vital:nth-child(3) { animation-delay: 450ms; }
+.vitals .vital:nth-child(4) { animation-delay: 510ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  .profile-header > *,
+  .vitals .vital { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── MOBILE NAV (phones/tablets only; links cloned from the sidebar) ── -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-bar">
+    <a href="../" class="mobile-bar-home">&larr; Home</a>
+    <button type="button" class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobilePanel">
+      Jump to
+      <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="mobile-panel" id="mobilePanel"></div>
+</div>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar" id="sidebar">
+  <a href="../" class="sidebar-home">&larr; Home</a>
+  <div class="sidebar-name">Dr. Terence Armentano</div>
+  <div class="sidebar-title">Director, Online Quality Assurance<br>&amp; Academic Innovation<br>Bowling Green State University</div>
+  <div class="sidebar-divider"></div>
+
+  <nav>
+    <div class="nav-section">
+      <div class="nav-section-label">Profile</div>
+      <a href="#education"   class="nav-link">Education</a>
+      <a href="#experience"  class="nav-link">Experience</a>
+      <a href="#accomplishments" class="nav-link">Accomplishments</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-label">Research &amp; Scholarship</div>
+      <a href="#publications" class="nav-link">Scholarship &amp; Recognition</a>
+      <a href="#press"        class="nav-link">In the Press</a>
+      <a href="#testimonials" class="nav-link">Colleague Testimonials</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-label">More</div>
+      <a href="#recognition" class="nav-link">Recognition</a>
+      <a href="#ministry"    class="nav-link">Ministry &amp; Service</a>
+      <a href="#discoverly"  class="nav-link">Discoverly App</a>
+      <a href="#connect"     class="nav-link">Connect</a>
+    </div>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-links">
+      <a href="https://linkedin.com/in/terencearmentano" target="_blank" class="sidebar-ext-link">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 5.5v3M3.5 3.5v.5M6 8.5V6.75C6 6 6.5 5.5 7.25 5.5S8.5 6 8.5 6.75V8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://bgsu.edu/online" target="_blank" class="sidebar-ext-link">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 1c-1.5 2-1.5 8 0 10M6 1c1.5 2 1.5 8 0 10M1 6h10" stroke="currentColor" stroke-width="1.2"/></svg>
+        BGSU Online
+      </a>
+      <a href="https://www.bgsu.edu/online-and-professional-programs.html" target="_blank" class="sidebar-ext-link">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 11V2.2a.7.7 0 0 1 .7-.7h4.1a.7.7 0 0 1 .7.7V11M6.9 5.6h2.9a.7.7 0 0 1 .7.7V11M.7 11h10.6M3.3 3.9h1.2M3.3 5.9h1.2M3.3 7.9h1.2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        My Office at BGSU
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<main class="main">
+
+  <a href="../" class="mobile-home">&larr; Home</a>
+
+  <!-- Profile Header -->
+  <header class="profile-header">
+    <div class="profile-id">
+      <img class="profile-photo" src="../photo.jpg" alt="Dr. Terence Armentano">
+      <h1 class="profile-name">Terence <em>Armentano</em><span class="profile-suffix">Ph.D.</span></h1>
+    </div>
+    <div class="profile-role">
+      Director, Online Quality Assurance &amp; Academic Innovation · BGSU Online &amp; Professional Programs<br>
+      Bowling Green State University · Bowling Green, Ohio
+    </div>
+    <p class="profile-statement">
+      How do we build learning environments that <strong>genuinely improve people's lives</strong> — and how do we know it's working? That question has guided 20 years of work in instructional design, program strategy, quality assurance, and academic innovation across one of the nation's most recognized online programs.
+    </p>
+    <div class="vitals">
+      <div class="vital">
+        <div class="vital-n">20+</div>
+        <div class="vital-l">Years in Online Ed</div>
+      </div>
+      <div class="vital">
+        <div class="vital-n">4.0</div>
+        <div class="vital-l">Ph.D. GPA</div>
+      </div>
+      <div class="vital">
+        <div class="vital-n">70+</div>
+        <div class="vital-l">Programs Supported</div>
+      </div>
+      <div class="vital">
+        <div class="vital-n">QM</div>
+        <div class="vital-l">Certified Coordinator</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── EDUCATION ── -->
+  <section class="section" id="education">
+    <div class="section-header">
+      <h2 class="section-label">Education</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Ph.D., Curriculum &amp; Instruction: Educational Technology</div>
+        <div class="edu-school">University of Toledo &nbsp;·&nbsp; Dissertation: Impact of Online Asynchronous Orientation on Student Enrollment, Retention, and GPA</div>
+      </div>
+      <div class="edu-gpa">4.0 GPA</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Master of Education, Learning Design</div>
+        <div class="edu-school">Bowling Green State University, 2004</div>
+      </div>
+      <div class="edu-gpa">4.0 GPA</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Bachelor of Science, Visual Communication Technology</div>
+        <div class="edu-school">Bowling Green State University, 2002</div>
+      </div>
+      <div class="edu-gpa">3.6 GPA</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Quality Matters Certified Coordinator</div>
+        <div class="edu-school">National Quality Assurance Certification for Online Higher Education</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section class="section" id="experience">
+    <div class="section-header">
+      <h2 class="section-label">Professional Experience</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Director, Online Quality Assurance &amp; Academic Innovation</div>
+        <div class="job-dates">2026 – Present</div>
+      </div>
+      <div class="job-org">Office of Online &amp; Professional Programs · Bowling Green State University</div>
+      <ul class="job-bullets">
+        <li>Provide university-wide leadership across all BGSU Online programs to ensure a transformative, high-quality digital learning environment.</li>
+        <li>Champion engaging course design that balances rigorous academic standards with federal Regular &amp; Substantive Interaction (RSI) requirements and AI-enhanced delivery modalities.</li>
+        <li>Apply web design principles and UX/UI best practices alongside student data to reduce technical friction in the digital classroom — directly supporting retention and institutional mission.</li>
+        <li>Lead faculty support initiatives and continuous improvement of the day-to-day digital classroom experience across online programs.</li>
+        <li>Align teams with innovative learning modalities, student success goals, and the evolving landscape of AI integration in higher education.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Assistant Director, Online &amp; Summer Academic Programs</div>
+        <div class="job-dates">2012 – 2026</div>
+      </div>
+      <div class="job-org">BGSU Online · Bowling Green State University</div>
+      <ul class="job-bullets">
+        <li>Secured BGSU's Quality Matters Learner Support Certification — making BGSU the <strong>only university in Ohio</strong> and one of just <strong>six public universities nationwide</strong> to hold this distinction, covering 70+ online programs. <span class="badge">QM-certified</span></li>
+        <li>Co-architected BGSU Online's accelerated 7-week delivery model — a flagship academic innovation now serving thousands of online learners annually.</li>
+        <li>Directed academic program strategy with senior leadership to design and launch new online programs targeting emerging student populations.</li>
+        <li>Implemented and customized a CRM system for eCampus, transforming recruitment pipelines and student communication workflows from the ground up.</li>
+        <li>Oversaw BGSU Online website, digital marketing, and paid campaigns — driving sustained enrollment growth year over year.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Assistant Director, Center for Online &amp; Blended Learning</div>
+        <div class="job-dates">2007 – 2012</div>
+      </div>
+      <div class="job-org">Bowling Green State University</div>
+      <ul class="job-bullets">
+        <li>Led instructional design for all online and blended programs — course quality, faculty training, and program-wide continuity.</li>
+        <li>Spearheaded institution-wide Canvas LMS implementation as primary architect and faculty training lead.</li>
+        <li>Championed EdTech integration strategies to elevate the quality of online pedagogy across disciplines.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Instructional Designer</div>
+        <div class="job-dates">2004 – 2007</div>
+      </div>
+      <div class="job-org">Bowling Green State University</div>
+      <ul class="job-bullets">
+        <li>Designed and launched BGSU's first online faculty training program, establishing a scalable model for quality course development.</li>
+        <li>Created the BGSU Blog System — empowering faculty and students with multimedia publishing, video, and podcast tools.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">University Instructor</div>
+        <div class="job-dates">2005 – 2012</div>
+      </div>
+      <div class="job-org">Grand Canyon University &amp; Bowling Green State University</div>
+      <ul class="job-bullets">
+        <li>Taught graduate-level online courses in the M.Ed. Curriculum &amp; Instruction: Technology Program at Grand Canyon University — rigorous quality standards, rubric-based assessment, and structured asynchronous engagement.</li>
+        <li>Designed and taught VCT 3660: Applied Interactive Media Production at BGSU — one of the first courses at the university to run on Canvas.</li>
+      </ul>
+      <div class="inline-quote">
+        <p>"This course became my favorite of any course I have ever taken at a higher educational level."</p>
+        <cite>— Brandon Hostetler, Founder &amp; Creative Director, Relentless Digital (former BGSU student)</cite>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Owner &amp; Principal Consultant</div>
+        <div class="job-dates">2006 – Present</div>
+      </div>
+      <div class="job-org">Discoverly LLC · Bowling Green, Ohio</div>
+      <ul class="job-bullets">
+        <li>Technology, education, and design solutions for schools and organizations. Led Google Chromebook 1:1 initiative for BG Christian Academy (2015).</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ── ACCOMPLISHMENTS ── -->
+  <section class="section" id="accomplishments">
+    <div class="section-header">
+      <h2 class="section-label">Key Accomplishments</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="acc-grid">
+      <div class="acc-card">
+        <div class="acc-label">National Recognition · 2025</div>
+        <div class="acc-title">QM Learner Support Certification</div>
+        <div class="acc-body">Only university in Ohio &amp; one of six public universities nationwide, covering 70+ online programs.</div>
+      </div>
+      <div class="acc-card">
+        <div class="acc-label">Signature Design</div>
+        <div class="acc-title">Signature Course Design Rollout</div>
+        <div class="acc-body">Designed and implemented BGSU Online Training and Signature Course Design Framework across online programs.</div>
+      </div>
+      <div class="acc-card">
+        <div class="acc-label">Research · 2023</div>
+        <div class="acc-title">Ph.D. Dissertation</div>
+        <div class="acc-body">Proved through rigorous research that thoughtfully designed online orientation has a measurable, significant impact on enrollment, retention, and student GPA.</div>
+      </div>
+      <div class="acc-card">
+        <div class="acc-label">Program Design</div>
+        <div class="acc-title">7-Week Accelerated Model</div>
+        <div class="acc-body">Co-architected BGSU's accelerated online delivery model from concept to full institutional deployment, serving thousands of working adult learners annually.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RECOGNITION STRIP ── -->
+  <div class="recognition-strip" id="recognition">
+    <div class="rec-strip-inner">
+      <div class="rec-strip-item">
+        <div class="rec-num">6</div>
+        <div class="rec-lbl">Public Universities Nationwide</div>
+        <div class="rec-body">One of only six public universities in the US to hold QM Learner Support Certification — BGSU is the only one in Ohio.</div>
+      </div>
+      <div class="rec-strip-item">
+        <div class="rec-num">4.0</div>
+        <div class="rec-lbl">Ph.D. GPA</div>
+        <div class="rec-body">University of Toledo · Curriculum &amp; Instruction: Educational Technology.</div>
+      </div>
+      <div class="rec-strip-item">
+        <div class="rec-num">BG Best</div>
+        <div class="rec-lbl">Award Recipient</div>
+        <div class="rec-body">One of BGSU's highest staff honors — recognizing innovation and exceptional service to the university community.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCHOLARSHIP & RECOGNITION ── -->
+  <section class="section" id="publications">
+    <div class="section-header">
+      <h2 class="section-label">Scholarship &amp; Recognition</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <!-- Education & Research -->
+    <div class="scholarship-sub">Education &amp; Research</div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Ph.D., Curriculum &amp; Instruction: Educational Technology (2023)</div>
+        <div class="sch-detail">University of Toledo · Dissertation: <em>Impact of Online Asynchronous Orientation on Student Enrollment, Retention, and GPA for BGSU Online Students.</em> Quantitative correlational study utilizing archival data to analyze the impact of asynchronous eCampus Orientation on enrollment, retention, and first-course GPA of newly admitted adult online learners.</div>
+      </div>
+      <a href="https://etd.ohiolink.edu/acprod/odb_etd/r/etd/search/10?p10_accession_num=toledo1700575897737076&clear=10&session=219544956442" target="_blank" class="sch-link">View Dissertation</a>
+    </div>
+
+    <!-- Peer-Reviewed Journal Articles -->
+    <div class="scholarship-sub">Peer-Reviewed Journal Articles</div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Journal Article (2006) — "Distance Education at Bowling Green State University: Challenges, Opportunities, and Promise"</div>
+        <div class="sch-detail">Cesarini, P., Sinn, J. W. &amp; Armentano, T. <em>Journal of Industrial Technology</em>, 22(4). An early institutional case study of distance education at BGSU, arguing — after Negroponte's "being digital is different" — that computer-mediated learning is not simply classroom teaching moved online, and examining what that shift asks of pedagogy, administration, and the learners it aims to reach.</div>
+      </div>
+      <a href="https://www.iastatedigitalpress.com/jtmae/article/id/14222/" target="_blank" class="sch-link">View Article</a>
+    </div>
+
+    <!-- Publications -->
+    <div class="scholarship-sub">Publications &amp; Book Chapters</div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Book Chapter (2008) — "Podcasting, Video Casting and More"</div>
+        <div class="sch-detail">Co-authored Chapter 5. In <em>The New Media Frontier: Blogging, Vlogging, and Podcasting for Christ</em> (Crossway Books).</div>
+      </div>
+      <a href="https://www.crossway.org/books/the-new-media-frontier-ebook/" target="_blank" class="sch-link">View Book</a>
+    </div>
+
+    <!-- Conference Presentations -->
+    <div class="scholarship-sub">National &amp; Regional Conference Presentations</div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Quality Matters Connect Conference (2021)</div>
+        <div class="sch-detail">A Template for Success: Baking QM into the Design of a Course Template &amp; Faculty Development Programs.</div>
+      </div>
+      <a href="https://ftp.qualitymatters.org/qa-resources/resource-center/conference-presentations/template-success-baking-qm-design-course" target="_blank" class="sch-link">View Presentation</a>
+    </div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Quality Matters LX Conference (2020)</div>
+        <div class="sch-detail">Supporting Student Success: QM Online Learner Support Certification Acquisition.</div>
+      </div>
+      <a href="https://qualitymatters.org/qa-resources/resource-center/conference-presentations/supporting-student-success-qm-online-learner" target="_blank" class="sch-link">View Presentation</a>
+    </div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Ohio Learning Network Spring Colloquium (2011, Ongoing)</div>
+        <div class="sch-detail">Co-presenter on Adding Human Interaction and Interactivity to Online Learning. Columbus, OH.</div>
+      </div>
+    </div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">EDUCAUSE Midwest Regional Conference (2010)</div>
+        <div class="sch-detail">BGSU on WordPress MU: A One-Stop Campus Shop for Blogs, Database-Driven Websites, and Catalogs.</div>
+      </div>
+      <a href="https://events.educause.edu/archives/2010/educause-midwest-regional-conference-2010/proceedings/bgsu-on-wordpress-mu-a-onestop-campus-shop-for-blogs-databasedriven-websites-and-catalogs" target="_blank" class="sch-link">View Proceedings</a>
+    </div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Distance Teaching &amp; Learning Conference (2007, 23rd Annual)</div>
+        <div class="sch-detail">Presenter on Institutional Partnership in distance education degree program development.</div>
+      </div>
+    </div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">Distance Teaching &amp; Learning Conference (2006, 22nd Annual)</div>
+        <div class="sch-detail">Presenter and conference proceedings author on Online Faculty Training. Addressed quality in online versus face-to-face education, drawing on Sloan Consortium national survey data.</div>
+      </div>
+    </div>
+
+    <!-- Institutional -->
+    <div class="scholarship-sub">Institutional Presentations</div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">BGSU Teaching &amp; Learning Conference (2015)</div>
+        <div class="sch-detail">#FalconForward: The Canvas for Engaging Student Success Before College Begins.</div>
+      </div>
+    </div>
+
+    <!-- Awards -->
+    <div class="scholarship-sub">Awards &amp; Honors</div>
+
+    <div class="sch-item">
+      <div>
+        <div class="sch-title">BG Best Award — Bowling Green State University (2020)</div>
+        <div class="sch-detail">Recognized by the Administrative Staff Council for exceptional contributions to online learning during the COVID-19 pandemic. Cited achievements include co-developing the Essential Guide for Transitioning to Remote Learning, creating university-wide online teaching templates and tutorials, building a Canvas student support hub, and leading BGSU to become the only university in Ohio to achieve the Quality Matters Learner Support Certification.</div>
+      </div>
+      <a href="https://www.bgsu.edu/news/2020/10/bg-best-award-winner-has-eye-on-helping-with-online-learning.html" target="_blank" class="sch-link">View Announcement</a>
+    </div>
+
+  </section>
+
+  <!-- ── PRESS ── -->
+  <section class="section" id="press">
+    <div class="section-header">
+      <h2 class="section-label">In the Press</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="press-grid">
+
+      <div class="press-card">
+        <div class="press-outlet">BGSU News</div>
+        <div class="press-date">November 2025</div>
+        <div class="press-headline">"Only at Bowling Green: BGSU Online nationally recognized for support of online learners"</div>
+        <div class="press-desc">Featured and quoted as QM Coordinator on securing the QM Certification for Online Learner Support recertification across all university online programs.</div>
+        <div class="press-links">
+          <a href="https://www.bgsu.edu/news/2025/11/only-at-bowling-green-bgsu-online-nationally-recognized-for-support-of-online-learners.html" target="_blank" class="sch-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="press-outlet">Quality Matters</div>
+        <div class="press-date">May 2019</div>
+        <div class="press-headline">"Take Your Quality Commitment to the Next Level With Program Certification"</div>
+        <div class="press-desc">Featured and quoted on the rigorous four-year effort to develop BGSU's online learner support infrastructure and the strategic vision behind aligning with QM's international quality standards.</div>
+        <div class="press-links">
+          <a href="https://www.qualitymatters.org/qa-resources/resource-center/articles-resources/take-quality-to-next-level-BSGU-JTCC" target="_blank" class="sch-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="press-outlet">Sentinel Tribune</div>
+        <div class="press-date">October 2025</div>
+        <div class="press-headline">BG Christian Academy Varsity Soccer — Historic State Championship Run</div>
+        <div class="press-desc">Profiled and quoted in local press coverage of the Bowling Green Christian Academy boys soccer team's historic postseason run and first-ever ICSO State Championship victory (12-2-1 record).</div>
+        <div class="press-links">
+          <a href="https://www.sent-trib.com/2025/10/21/bg-christian-soccer-captures-first-icso-state-title/" target="_blank" class="sch-link">Championship Article</a>
+          <a href="https://www.sent-trib.com/2025/10/17/bg-christian-soccer-advances-to-state-championship/" target="_blank" class="sch-link">Semi-Final Article</a>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="press-outlet">Sentinel Tribune</div>
+        <div class="press-date">March 2022</div>
+        <div class="press-headline">"Open Homes focuses on NW Ohio orphans"</div>
+        <div class="press-desc">Highlighted in coverage detailing the launch of Open Homes — a community initiative supporting foster children and orphans in Northwest Ohio.</div>
+        <div class="press-links">
+          <a href="https://www.sent-trib.com/2022/03/12/open-homes-focuses-on-nw-ohio-orphans/" target="_blank" class="sch-link">Read Article</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="section" id="testimonials">
+    <div class="section-header">
+      <h2 class="section-label">Colleague Testimonials</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonial">
+        <p class="testimonial-text">"He was absolutely critical to our launching of a web-intensive graduate degree program… Without him, the program would still be a pipe dream."</p>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-name">Dr. James McFillen</div>
+        <div class="testimonial-role">Professor Emeritus, Bowling Green State University</div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-text">"He is knowledgeable about so much more than just online education, but also about university processes and marketing to and recruiting non-traditional student populations."</p>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-name">Dr. Melissa Burek</div>
+        <div class="testimonial-role">Associate Dean &amp; Professor, Bowling Green State University</div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-text">"He is one of the most talented individuals that I have ever worked with. He is both highly innovative and creative!"</p>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-name">Dr. Hans Schmalzried</div>
+        <div class="testimonial-role">Professor Emeritus &amp; Former Department Chair, Bowling Green State University</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── MINISTRY & SERVICE ── -->
+  <section class="section" id="ministry">
+    <div class="section-header">
+      <h2 class="section-label">Ministry &amp; Community Service</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <p style="font-family:'Source Serif 4',serif; font-size:15px; font-weight:300; color:#3D3D3F; line-height:1.75; margin-bottom:32px;">Twenty years of leadership and service outside the professional environment — in a local church, in the foster care system, and on an athletic field. These experiences have shaped my understanding of human development, perseverance, and what it means to genuinely invest in the lives of others.</p>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Head Soccer Coach &amp; Assistant Basketball Coach</div>
+        <div class="job-dates">2021 – Present</div>
+      </div>
+      <div class="job-org">BG Christian Academy · Junior High &amp; High School · Bowling Green, Ohio</div>
+      <ul class="job-bullets">
+        <li>Coach and develop student-athletes in soccer and basketball — teaching skills, strategy, teamwork, discipline, and sportsmanship.</li>
+        <li>Mentor student-athletes beyond the field — building relationships that help students develop confidence, character, and leadership.</li>
+        <li>Integrate Christian values into the athletic environment — modeling faith, integrity, humility, service, perseverance, and respect.</li>
+        <li>Support students holistically — encouraging academic success, communicating with parents, and helping athletes balance sport, school, and faith.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Elder Board Member</div>
+        <div class="job-dates">2010 – 2023</div>
+      </div>
+      <div class="job-org">BG Covenant Church · Bowling Green, Ohio</div>
+      <ul class="job-bullets">
+        <li>Provided spiritual leadership — helped guide the church's vision, direction, and overall spiritual health across a 13-year tenure.</li>
+        <li>Shepherded and cared for members through life challenges — offering counsel, encouragement, and prayer.</li>
+        <li>Participated in major church decisions involving ministries, finances, staffing, and institutional initiatives.</li>
+        <li>Mentored pastors, ministry leaders, and volunteers while identifying and equipping future leaders for service.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Youth Group Leader</div>
+        <div class="job-dates">2004 – 2010</div>
+      </div>
+      <div class="job-org">BG Covenant Church · Bowling Green, Ohio</div>
+      <ul class="job-bullets">
+        <li>Planned and led weekly youth meetings — organizing activities, discussions, games, worship, and lessons for middle and high school students.</li>
+        <li>Taught and mentored youth through Bible studies and devotionals, helping students connect faith to everyday life.</li>
+        <li>Built lasting relationships with students — listening, encouraging, and providing guidance through formative years.</li>
+        <li>Organized retreats, service projects, mission trips, and social activities that built community and character.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Licensed Foster Parent &amp; Co-Founder, Open Homes Ohio</div>
+        <div class="job-dates">2008 – 2018</div>
+      </div>
+      <div class="job-org">Kids Count Too · Bowling Green, Ohio</div>
+      <ul class="job-bullets">
+        <li>Provided a safe, stable home — offering children a secure environment with consistent routines, care, and unconditional support over a decade of service.</li>
+        <li>Supported children through trauma — building trust, offering patience, and helping children develop the resilience needed to grow and heal.</li>
+        <li>Collaborated with caseworkers, schools, therapists, and biological families to support each child's unique permanency plan.</li>
+        <li>Co-founded Open Homes Ohio — a nonprofit providing resources, community, and advocacy for foster families across the region. <a href="https://openhomesohio.org" style="color:var(--accent);text-decoration:none;">openhomesohio.org</a></li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Eagle Scout</div>
+        <div class="job-dates">1998</div>
+      </div>
+      <div class="job-org">Boy Scouts of America · Troop 903 · Massillon, Ohio</div>
+      <ul class="job-bullets">
+        <li>Earned Scouting's highest rank — the culmination of years of service projects, leadership roles, and merit badge work completed before age eighteen.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── DISCOVERLY APP ── -->
+  <section class="section" id="discoverly">
+    <div class="section-header">
+      <h2 class="section-label">Discoverly — A Discipleship App</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div style="background:var(--paper); border:1px solid var(--subtle); border-radius:8px; padding:36px 40px; margin-bottom:0;">
+      <div style="display:flex; align-items:flex-start; gap:28px; margin-bottom:24px;">
+        <div style="width:56px; height:56px; border-radius:10px; background:var(--ink); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="white"/><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z" stroke="white" stroke-width="1.5" fill="none"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Currently in Pilot Phase</div>
+          <div style="font-family:'Lora',serif; font-size:22px; font-weight:500; color:var(--ink); margin-bottom:4px;">Discover the mission in every message.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; color:var(--mid);">discoverly.com</div>
+        </div>
+      </div>
+
+      <p style="font-family:'Source Serif 4',serif; font-size:15px; font-weight:300; color:#3D3D3F; line-height:1.8; margin-bottom:18px;">Discoverly is a discipleship app I designed to help church members live out the mission of the sermon all week long. Rather than letting Sunday's message fade by Monday morning, Discoverly turns each sermon or homily into weekly missions a congregation can walk out together — in groups, or privately.</p>
+
+      <p style="font-family:'Source Serif 4',serif; font-size:15px; font-weight:300; color:#3D3D3F; line-height:1.8; margin-bottom:28px;">The pastor or priest approves every mission before anyone sees it, keeping the content tied to their specific message and context — not a generic devotional. Currently in active pilot phase with partnering churches.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:28px;">
+        <div style="background:var(--warm-white); border:1px solid var(--subtle); border-radius:6px; padding:16px 18px;">
+          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Sermon-Specific</div>
+          <div style="font-family:'Source Serif 4',serif; font-size:13px; font-weight:300; color:var(--mid); line-height:1.6;">Custom missions drawn from your pastor's actual message — not a generic devotional plan.</div>
+        </div>
+        <div style="background:var(--warm-white); border:1px solid var(--subtle); border-radius:6px; padding:16px 18px;">
+          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Pastor-Approved</div>
+          <div style="font-family:'Source Serif 4',serif; font-size:13px; font-weight:300; color:var(--mid); line-height:1.6;">Every mission is reviewed and approved before going to the congregation — theology stays sound.</div>
+        </div>
+        <div style="background:var(--warm-white); border:1px solid var(--subtle); border-radius:6px; padding:16px 18px;">
+          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Community-Driven</div>
+          <div style="font-family:'Source Serif 4',serif; font-size:13px; font-weight:300; color:var(--mid); line-height:1.6;">Walk the week's mission together, in groups, or privately — however your congregation is wired to grow.</div>
+        </div>
+      </div>
+
+      <a href="https://discoverly.com" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff; padding:11px 24px; border-radius:5px; font-family:'Inter',sans-serif; font-size:13px; font-weight:500; text-decoration:none; transition:background 0.15s;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">
+        Visit discoverly.com
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ── CONNECT ── -->
+  <section class="section" id="connect">
+    <div class="connect-block">
+      <h2>If something here<br><em>resonated with you.</em></h2>
+      <p>Whether you're a search committee, a colleague, or someone who found their way here — I'd genuinely welcome a conversation. Every good relationship starts with a simple hello.</p>
+      <div class="connect-links">
+        <a href="mailto:hello@terencearmentano.com" class="btn-accent">hello@terencearmentano.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="page-footer">
+  <div>Dr. Terence Armentano · Bowling Green State University · 2026</div>
+  <div><a href="../">&larr; terencearmentano.com</a></div>
+</footer>
+
+<script>
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id], div[id]');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Re-queried each time so the cloned mobile nav links stay in sync too
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll(`.nav-link[href="#${entry.target.id}"]`)
+              .forEach(l => l.classList.add('active'));
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// Mobile "Jump to" nav — clones the sidebar link list so there is only ever
+// one copy of the section links to maintain.
+(function () {
+  const nav    = document.getElementById('mobileNav');
+  const toggle = document.getElementById('mobileToggle');
+  const panel  = document.getElementById('mobilePanel');
+  const source = document.querySelector('.sidebar nav');
+  if (!nav || !toggle || !panel || !source) return;
+
+  panel.appendChild(source.cloneNode(true));
+
+  const setOpen = (open) => {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+
+  toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+  panel.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  document.addEventListener('click', (e) => { if (!nav.contains(e.target)) setOpen(false); });
+})();
+</script>
+
+</body>
+</html>

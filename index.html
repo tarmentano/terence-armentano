@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Terence Armentano</title>
+<meta name="description" content="Dr. Terence Armentano — educator, systems builder, and creator of Discoverly. Writing and building at the intersection of learning, technology, and a life well lived.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --warm-white:  #FAFAF8;
+  --paper:       #F4F2EE;
+  --ink:         #1C1C1E;
+  --deep:        #2C2C2E;
+  --mid:         #6B7280;
+  --subtle:      #E8E5E0;
+  --subtle-2:    #D4D0C8;
+  --accent:      #8B7355;
+  --accent-lt:   #C4A882;
+  --accent-pale: #F5EFE6;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--warm-white);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 88px 32px 56px;
+}
+
+/* ── Masthead ── */
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.portrait {
+  width: 104px;
+  height: 104px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border: 1px solid var(--subtle);
+}
+
+.name {
+  font-family: 'Lora', serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.name em { font-style: italic; font-weight: 400; }
+
+.name .cred {
+  font-size: 0.92em;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  margin-left: 10px;
+}
+
+.role {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--mid);
+}
+
+.role-lead {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--deep);
+  letter-spacing: 0.1px;
+}
+
+/* ── Statement ── */
+.statement {
+  font-size: 20px;
+  line-height: 1.65;
+  color: var(--deep);
+  margin: 0 0 14px;
+}
+
+.statement strong {
+  font-weight: 400;
+  color: var(--ink);
+  box-shadow: inset 0 -0.5em 0 var(--accent-pale);
+}
+
+.statement-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--mid);
+  margin: 0 0 44px;
+}
+
+/* ── Group headings ── */
+.group-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 16px;
+  padding-top: 30px;
+  border-top: 1px solid var(--subtle);
+}
+
+.group-label:first-of-type { padding-top: 0; border-top: 0; }
+
+/* ── Cards ── */
+.cards {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.cards.two-up { grid-template-columns: 1fr 1fr; }
+
+.card.span-2 { grid-column: 1 / -1; }
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px;
+  background: var(--paper);
+  border: 1px solid var(--subtle);
+  border-top: 2px solid transparent;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-top-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(28,28,30,0.07);
+  transform: translateY(-2px);
+}
+
+.card-lead { min-width: 0; }
+
+.card-title {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  margin-bottom: 5px;
+}
+
+.card-kicker {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-left: 10px;
+  vertical-align: 2px;
+  white-space: nowrap;
+}
+
+.card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.card-go {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.card:hover .card-go { transform: translateX(3px); }
+
+/* Primary card — the CV */
+.card.primary {
+  background: var(--accent-pale);
+  border-color: var(--accent-lt);
+  padding: 26px;
+}
+
+.card.primary .card-title { font-size: 21px; }
+
+/* Not-yet-live card — no link, no hover lift */
+.card.soon {
+  background: transparent;
+  border-style: dashed;
+  border-top: 1px dashed var(--subtle-2);
+  cursor: default;
+}
+
+.card.soon:hover {
+  border-top-color: var(--subtle-2);
+  box-shadow: none;
+  transform: none;
+}
+
+.card.soon .card-title { color: var(--mid); }
+
+.card-flag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--mid);
+  background: var(--paper);
+  border: 1px solid var(--subtle);
+  border-radius: 100px;
+  padding: 5px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Footer ── */
+.foot {
+  border-top: 1px solid var(--subtle);
+  padding: 26px 32px 38px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--mid);
+}
+
+.foot a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.foot a:hover { text-decoration: underline; }
+.foot-sep { margin: 0 10px; color: var(--subtle-2); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .wrap { padding: 56px 22px 44px; }
+  .masthead { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .name { font-size: 34px; }
+  .statement { font-size: 18px; }
+  .cards.two-up { grid-template-columns: 1fr; }
+  .card { padding: 20px; gap: 16px; }
+}
+
+/* ── Page-load intro ── */
+@keyframes introRise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.wrap > * {
+  animation: introRise 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.wrap > *:nth-child(1) { animation-delay:  60ms; }
+.wrap > *:nth-child(2) { animation-delay: 150ms; }
+.wrap > *:nth-child(3) { animation-delay: 240ms; }
+.wrap > *:nth-child(4) { animation-delay: 320ms; }
+.wrap > *:nth-child(5) { animation-delay: 380ms; }
+.wrap > *:nth-child(6) { animation-delay: 440ms; }
+.wrap > *:nth-child(7) { animation-delay: 500ms; }
+.wrap > *:nth-child(8) { animation-delay: 560ms; }
+.wrap > *:nth-child(9)  { animation-delay: 620ms; }
+.wrap > *:nth-child(10) { animation-delay: 680ms; }
+.wrap > *:nth-child(11) { animation-delay: 740ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  .wrap > * { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <img src="photo.jpg" alt="Dr. Terence Armentano" class="portrait">
+    <div>
+      <h1 class="name">Terence <em>Armentano</em><span class="cred">Ph.D.</span></h1>
+      <div class="role">
+        <span class="role-lead">Putting people first, and building the systems to serve them</span><br>
+        Bowling Green, Ohio
+      </div>
+    </div>
+  </div>
+
+  <p class="statement">
+    For over twenty years I've worked on a single question: how do we build learning that <strong>genuinely improves people's lives</strong> — and how do we know it's working?
+  </p>
+
+  <p class="statement-sub">
+    The defining trait of that work takes shape in community. My university, my classroom, my church, my family, my business, my apps, and the teams I coach. Different arenas, same work: figure out what actually helps people, then build the system that makes it repeatable. Discovering things as I go, and sharing wisdom along the way.
+  </p>
+
+  <div class="group-label">Start here</div>
+
+  <div class="cards">
+    <a href="cv/" class="card primary">
+      <div class="card-lead">
+        <div class="card-title">Academic Profile &amp; CV</div>
+        <div class="card-desc">Over two decades of discovery, application, and design — building learning environments that work.</div>
+      </div>
+      <span class="card-go" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+
+  <div class="group-label">Work together</div>
+
+  <div class="cards two-up">
+    <a href="mailto:hello@terencearmentano.com?subject=Consulting%20inquiry" class="card">
+      <div class="card-lead">
+        <div class="card-title">Consulting</div>
+        <div class="card-desc">Online program strategy, course design, and quality assurance for universities, alongside organizational and leadership consulting for ministries and nonprofits.</div>
+      </div>
+      <span class="card-go" aria-hidden="true">&rarr;</span>
+    </a>
+    <a href="mailto:hello@terencearmentano.com?subject=Speaking%20inquiry" class="card">
+      <div class="card-lead">
+        <div class="card-title">Speaking</div>
+        <div class="card-desc">Conference sessions on academic innovation and student support, plus keynotes on family resilience, navigating foster care, and ministry leadership.</div>
+      </div>
+      <span class="card-go" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+
+  <div class="group-label">Elsewhere</div>
+
+  <div class="cards two-up">
+    <a href="https://discoverly.com" target="_blank" rel="noopener" class="card">
+      <div class="card-lead">
+        <div class="card-title">Discoverly</div>
+        <div class="card-desc">A discipleship app I built that turns each Sunday's message into missions a congregation walks out together. Currently in pilot.</div>
+      </div>
+      <span class="card-go" aria-hidden="true">&rarr;</span>
+    </a>
+    <a href="https://linkedin.com/in/terencearmentano" target="_blank" rel="noopener" class="card">
+      <div class="card-lead">
+        <div class="card-title">LinkedIn</div>
+        <div class="card-desc">Search committee, colleague, or someone who found their way here — start with a hello.</div>
+      </div>
+      <span class="card-go" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+
+  <!-- ── Discovering Things ──
+       Placeholder while the Substack is being built. To promote this to the
+       primary slot later: change this <div> to <a href="URL">, add the
+       class "primary", drop "soon", move the block up under "Start here",
+       and demote the CV card to the "Work together" grid. -->
+  <div class="group-label">Coming soon</div>
+
+  <div class="cards">
+    <div class="card soon">
+      <div class="card-lead">
+        <div class="card-title">Discovering Things <span class="card-kicker">Newsletter &amp; Podcast</span></div>
+        <div class="card-desc">Exploring how to build systems for a full life — from ed tech to family resilience to ancient wisdom.</div>
+      </div>
+      <span class="card-flag">In progress</span>
+    </div>
+  </div>
+
+</div>
+
+<footer class="foot">
+  Dr. Terence Armentano
+  <span class="foot-sep">·</span>
+  Bowling Green, Ohio
+  <span class="foot-sep">·</span>
+  <a href="cv/">Academic Profile</a>
+</footer>
+
+</body>
+</html>
