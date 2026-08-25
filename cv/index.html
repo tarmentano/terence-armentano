@@ -1030,29 +1030,79 @@ body {
   .vitals .vital { animation: none !important; opacity: 1 !important; transform: none !important; }
 }
 
+
+
 /* ── PRINT ── */
 @media print {
-  .sidebar, .mobile-nav { display: none !important; }
-  .main { margin-left: 0 !important; }
+  @page { size: letter; margin: 0.55in 0.6in 0.5in; }
+  html { font-size: 15px; }
+  body { background: #fff !important; overflow-x: visible;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-  .job, .edu-item, .acc-card, .testimonial, .sch-item, .press-card {
-    break-inside: avoid;
+  /* nav chrome has no place on paper */
+  .sidebar, .mobile-nav, .mobile-home { display: none !important; }
+
+  /* The 900px mobile rules apply in print (Chrome lays out at ~816px).
+     Undo every one of them that hurts paper. */
+  .main { margin-left: 0 !important; max-width: 100% !important; padding: 0 !important; }
+  .page-footer { margin-left: 0 !important; padding: 14px 0 0 !important; font-size: 9px; }
+  .acc-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .press-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .rec-strip-inner { flex-direction: row !important; gap: 0 !important; }
+  .rec-strip-item { border-right: 1px solid var(--subtle) !important;
+                    border-bottom: none !important; padding: 0 18px !important; }
+  .rec-strip-item:last-child { border-right: none !important; }
+  .rec-num { font-size: 24px !important; }
+  .rec-lbl { font-size: 9px !important; margin: 4px 0 !important; }
+  .rec-body { font-size: 10.5px !important; line-height: 1.45 !important; }
+  .vitals { display: flex !important; width: fit-content !important; flex-wrap: nowrap !important; }
+  .vital { padding: 10px 20px !important; }
+  .vital-l { font-size: 9px !important; letter-spacing: 0.7px !important; }
+  .profile-name { font-size: 34px !important; }
+  .connect-block { padding: 24px 28px !important; }
+
+  /* the page-load intro starts at opacity 0 — never let that reach paper */
+  .profile-header > *, .vitals .vital, .wrap > * {
+    animation: none !important; opacity: 1 !important; transform: none !important;
   }
 
-  .connect-block {
-    background: #fff !important;
-    border: 1px solid var(--subtle);
-  }
-  .connect-block h2,
-  .connect-block h2 em { color: var(--ink) !important; }
-  .connect-block p { color: var(--mid) !important; }
-  .btn-ghost-white { border-color: var(--subtle-2); color: var(--ink) !important; }
+  /* tighter vertical rhythm for paper */
+  .profile-header { padding-bottom: 20px; margin-bottom: 26px; }
+  .section { margin-bottom: 26px; }
+  .section-header { margin-bottom: 14px; }
+  .section-label { font-size: 19px; }
+  .recognition-strip { margin-bottom: 26px; padding: 14px 16px; }
+  .job { padding: 14px 0; }
+  .edu-item { padding: 11px 0; }
+  .sch-item { padding: 10px 0; }
+  .profile-statement { margin-bottom: 20px; font-size: 15px; line-height: 1.6; }
+  .job-bullets li { font-size: 12.5px; line-height: 1.5; margin-bottom: 5px; }
+  .sch-detail, .acc-body, .press-desc { font-size: 11.5px; line-height: 1.5; }
+  .acc-card { padding: 14px 16px; }
+  .press-card { padding: 16px 18px; }
+  .testimonial { padding: 18px 22px; }
+  .testimonial-text { font-size: 13px; margin-bottom: 12px; }
 
-  /* Chrome prints at ~816px wide, which falls inside the 900px mobile
-     breakpoint above — re-assert the desktop layout so recognition
-     numerals and accomplishment cards don't stack. */
-  .rec-strip-inner { flex-direction: row !important; }
-  .acc-grid { grid-template-columns: 1fr 1fr !important; }
+  /* keep blocks whole across page breaks */
+  .job, .edu-item, .acc-card, .testimonial, .sch-item, .press-card,
+  .inline-quote, .recognition-strip, .vitals, .connect-block {
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .section-header, .scholarship-sub, .profile-header { break-after: avoid; page-break-after: avoid; }
+  .section { break-inside: auto; }
+
+  /* dark connect block -> printable */
+  .connect-block { background: #fff !important; border: 1px solid var(--subtle); }
+  .connect-block h2 { color: var(--ink) !important; font-size: 22px; }
+  .connect-block h2 em { color: var(--accent) !important; }
+  .connect-block p { color: var(--mid) !important; font-size: 12.5px; }
+  .btn-accent { background: none !important; color: var(--accent) !important;
+                border: 1px solid var(--accent); padding: 7px 16px; }
+  .btn-ghost-white { border-color: var(--subtle-2) !important; color: var(--ink) !important; }
+
+  a { text-decoration: none; }
+  .sch-link { border-color: var(--subtle-2); padding: 2px 7px; font-size: 10px; }
+  * { transition: none !important; box-shadow: none !important; }
 }
 </style>
 </head>
@@ -1610,47 +1660,18 @@ body {
     </div>
   </section>
 
-  <!-- ── DISCOVERLY APP ── -->
+  <!-- ── DISCOVERLY ── -->
   <section class="section" id="discoverly">
     <div class="section-header">
-      <h2 class="section-label">Discoverly — A Discipleship App</h2>
+      <h2 class="section-label">Discoverly <span style="font-style:italic; color:var(--mid); font-size:0.78em;">&mdash; Discover the mission in every message.</span></h2>
       <div class="section-rule"></div>
     </div>
 
-    <div style="background:var(--paper); border:1px solid var(--subtle); border-radius:8px; padding:36px 40px; margin-bottom:0;">
-      <div style="display:flex; align-items:flex-start; gap:28px; margin-bottom:24px;">
-        <div style="width:56px; height:56px; border-radius:10px; background:var(--ink); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="white"/><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z" stroke="white" stroke-width="1.5" fill="none"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </div>
-        <div>
-          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Currently in Pilot Phase</div>
-          <div style="font-family:'Lora',serif; font-size:22px; font-weight:500; color:var(--ink); margin-bottom:4px;">Discover the mission in every message.</div>
-          <div style="font-family:'Inter',sans-serif; font-size:13px; color:var(--mid);">discoverly.com</div>
-        </div>
-      </div>
-
-      <p style="font-family:'Source Serif 4',serif; font-size:15px; font-weight:300; color:#3D3D3F; line-height:1.8; margin-bottom:18px;">Discoverly is a discipleship app I designed to help church members live out the mission of the sermon all week long. Rather than letting Sunday's message fade by Monday morning, Discoverly turns each sermon or homily into weekly missions a congregation can walk out together — in groups, or privately.</p>
-
-      <p style="font-family:'Source Serif 4',serif; font-size:15px; font-weight:300; color:#3D3D3F; line-height:1.8; margin-bottom:28px;">The pastor or priest approves every mission before anyone sees it, keeping the content tied to their specific message and context — not a generic devotional. Currently in active pilot phase with partnering churches.</p>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:28px;">
-        <div style="background:var(--warm-white); border:1px solid var(--subtle); border-radius:6px; padding:16px 18px;">
-          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Sermon-Specific</div>
-          <div style="font-family:'Source Serif 4',serif; font-size:13px; font-weight:300; color:var(--mid); line-height:1.6;">Custom missions drawn from your pastor's actual message — not a generic devotional plan.</div>
-        </div>
-        <div style="background:var(--warm-white); border:1px solid var(--subtle); border-radius:6px; padding:16px 18px;">
-          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Pastor-Approved</div>
-          <div style="font-family:'Source Serif 4',serif; font-size:13px; font-weight:300; color:var(--mid); line-height:1.6;">Every mission is reviewed and approved before going to the congregation — theology stays sound.</div>
-        </div>
-        <div style="background:var(--warm-white); border:1px solid var(--subtle); border-radius:6px; padding:16px 18px;">
-          <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">Community-Driven</div>
-          <div style="font-family:'Source Serif 4',serif; font-size:13px; font-weight:300; color:var(--mid); line-height:1.6;">Walk the week's mission together, in groups, or privately — however your congregation is wired to grow.</div>
-        </div>
-      </div>
-
-      <a href="https://discoverly.com" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff; padding:11px 24px; border-radius:5px; font-family:'Inter',sans-serif; font-size:13px; font-weight:500; text-decoration:none; transition:background 0.15s;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">
+    <div style="background:var(--paper); border:1px solid var(--subtle); border-radius:8px; padding:22px 26px;">
+      <p style="font-family:'Source Serif 4',serif; font-size:15px; font-weight:300; color:#3D3D3F; line-height:1.75; margin-bottom:14px;">Discoverly is an app I developed that turns every weekly message into a deep and connected learning environment people can walk out all week with one another.</p>
+      <a href="https://discoverly.com" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; font-family:'Inter',sans-serif; font-size:12px; font-weight:500; color:var(--accent); text-decoration:none; border:1px solid rgba(139,115,85,0.3); border-radius:4px; padding:5px 12px;">
         Visit discoverly.com
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </a>
     </div>
   </section>
