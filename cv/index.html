@@ -1029,6 +1029,31 @@ body {
   .profile-header > *,
   .vitals .vital { animation: none !important; opacity: 1 !important; transform: none !important; }
 }
+
+/* ── PRINT ── */
+@media print {
+  .sidebar, .mobile-nav { display: none !important; }
+  .main { margin-left: 0 !important; }
+
+  .job, .edu-item, .acc-card, .testimonial, .sch-item, .press-card {
+    break-inside: avoid;
+  }
+
+  .connect-block {
+    background: #fff !important;
+    border: 1px solid var(--subtle);
+  }
+  .connect-block h2,
+  .connect-block h2 em { color: var(--ink) !important; }
+  .connect-block p { color: var(--mid) !important; }
+  .btn-ghost-white { border-color: var(--subtle-2); color: var(--ink) !important; }
+
+  /* Chrome prints at ~816px wide, which falls inside the 900px mobile
+     breakpoint above — re-assert the desktop layout so recognition
+     numerals and accomplishment cards don't stack. */
+  .rec-strip-inner { flex-direction: row !important; }
+  .acc-grid { grid-template-columns: 1fr 1fr !important; }
+}
 </style>
 </head>
 <body>
@@ -1373,7 +1398,7 @@ body {
 
     <div class="sch-item">
       <div>
-        <div class="sch-title">Ohio Learning Network Spring Colloquium (2011, Ongoing)</div>
+        <div class="sch-title">Ohio Learning Network Spring Colloquium (2011)</div>
         <div class="sch-detail">Co-presenter on Adding Human Interaction and Interactivity to Online Learning. Columbus, OH.</div>
       </div>
     </div>
